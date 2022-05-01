@@ -43,9 +43,9 @@ public class QuizEditOptions extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
         prompt.setBounds(50, 150, 500, 30);
-        addQuestionButton.setBounds(100,220,150,30);
-        editQuestionButton.setBounds(100,290,150,30);
-        deleteQuestionButton.setBounds(100,360,150,30);
+        addQuestionButton.setBounds(100, 220, 150, 30);
+        editQuestionButton.setBounds(100, 290, 150, 30);
+        deleteQuestionButton.setBounds(100, 360, 150, 30);
 
         if (showFinishButton) {
             finishButton.setBounds(100, 420, 150, 30);
@@ -73,18 +73,18 @@ public class QuizEditOptions extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try{
+        try {
             if (e.getSource() == addQuestionButton) {
                 this.dispose();
                 ChooseQuestionTypeScreen currentScreen = new ChooseQuestionTypeScreen(socket, pw, oos, ois, false);
-                Utils.makeFrameFromTemplate(currentScreen,"Add Questions");
+                Utils.makeFrameFromTemplate(currentScreen, "Add Questions");
             } else if (e.getSource() == editQuestionButton) {
 
             } else if (e.getSource() == deleteQuestionButton) {
                 oos.writeObject(Server.GET_QUESTIONS_STR);
                 String res = (String) ois.readObject();
                 if (res.equals("Success")) {
-                    ArrayList<String> questions = (ArrayList<String>) ois.readObject();
+                    ArrayList < String > questions = (ArrayList < String > ) ois.readObject();
                     this.setVisible(false);
                     QuestionListScreen currentScreen = new QuestionListScreen(socket, pw, oos, ois, questions, Server.DELETE_QUESTION, this);
                     Utils.makeFrameFromTemplate(currentScreen, "Delete Question");
@@ -99,7 +99,5 @@ public class QuizEditOptions extends JFrame implements ActionListener {
             ex.printStackTrace();
         }
 
+    }
 }
-}
-
-

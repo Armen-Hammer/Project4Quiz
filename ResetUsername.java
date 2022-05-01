@@ -66,7 +66,7 @@ public class ResetUsernameScreen extends JFrame implements ActionListener {
                 oos.writeObject(userTextField.getText());
                 oos.flush();
                 String response = (String) ois.readObject();
-                if(response.equals("Success")) {
+                if (response.equals("Success")) {
                     JOptionPane.showMessageDialog(this, "Success");
                     this.dispose();
                     calledFrom.setVisible(true);
@@ -86,4 +86,3 @@ public class ResetUsernameScreen extends JFrame implements ActionListener {
     }
 
 }
-

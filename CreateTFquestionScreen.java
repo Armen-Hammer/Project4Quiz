@@ -16,9 +16,12 @@ public class CreateTFquestionScreen extends JFrame implements ActionListener {
 
     JTextField questionField = new JTextField();
 
-    String[] optionsToChoose = {"TRUE", "FALSE"};
+    String[] optionsToChoose = {
+        "TRUE",
+        "FALSE"
+    };
 
-    JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
+    JComboBox < String > jComboBox = new JComboBox < > (optionsToChoose);
 
     JButton makeQuestionButton = new JButton("Create TF question");
 
@@ -46,7 +49,7 @@ public class CreateTFquestionScreen extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        answerLabel.setBounds(50,200,100,30);
+        answerLabel.setBounds(50, 200, 100, 30);
         jComboBox.setBounds(150, 200, 150, 30);
 
         questionLabel.setBounds(50, 70, 100, 30);

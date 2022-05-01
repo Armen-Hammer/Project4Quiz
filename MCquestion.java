@@ -81,10 +81,9 @@ public class MCquestion extends Question implements Serializable {
                 System.out.println(prompt);
                 num = scanner.nextInt();
 
-                if(num <= 4 && num >= 1) {
+                if (num <= 4 && num >= 1) {
                     readInt = true;
-                }
-                else {
+                } else {
                     System.out.printf("Please enter a valid integer from %d to %d\n", 1, 4);
                 }
             } catch (InputMismatchException e) {
@@ -94,7 +93,7 @@ public class MCquestion extends Question implements Serializable {
 
         String ans = null;
 
-        switch(num) {
+        switch (num) {
             case 1:
                 ans = choiceA;
                 break;

@@ -15,7 +15,7 @@ public class QuizListScreen extends JFrame implements ActionListener {
     JLabel questionLabel = new JLabel("What quiz do you want to choose");
 
 
-    JComboBox<String> jComboBox;
+    JComboBox < String > jComboBox;
 
     JButton enterQuizButton = new JButton("Select");
 
@@ -26,8 +26,8 @@ public class QuizListScreen extends JFrame implements ActionListener {
     int action;
     JFrame calledFrom;
 
-    public QuizListScreen(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList<String> quizes, int action, JFrame calledFrom) {
-        jComboBox = new JComboBox<>(quizes.toArray(new String[quizes.size()]));
+    public QuizListScreen(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList < String > quizes, int action, JFrame calledFrom) {
+        jComboBox = new JComboBox < > (quizes.toArray(new String[quizes.size()]));
 
         setLayoutManager();
         setLocationAndSize();
@@ -87,7 +87,7 @@ public class QuizListScreen extends JFrame implements ActionListener {
                         break;
                     case Server.TAKE_QUIZ:
                         Quiz quiz = (Quiz) ois.readObject();
-                        ArrayList<Question> questions = quiz.getQuestions();
+                        ArrayList < Question > questions = quiz.getQuestions();
                         break;
 
                 }
@@ -99,7 +99,3 @@ public class QuizListScreen extends JFrame implements ActionListener {
         }
     }
 }
-
-
-
-

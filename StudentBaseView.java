@@ -92,7 +92,7 @@ public class StudentBaseView extends JFrame implements ActionListener {
                 oos.writeObject(Server.GET_COURSES_STR);
                 String response = (String) ois.readObject();
                 if (response.equals("Success")) {
-                    ArrayList<String> arr = (ArrayList<String>) ois.readObject();
+                    ArrayList < String > arr = (ArrayList < String > ) ois.readObject();
                     this.dispose();
                     ShowCoursesDropdownScreen currentScreen = new ShowCoursesDropdownScreen(socket, pw, oos, ois, arr, Server.ENTER_COURSE, this);
                     Utils.makeFrameFromTemplate(currentScreen, "Courses");

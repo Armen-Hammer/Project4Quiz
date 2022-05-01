@@ -1,4 +1,4 @@
-
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -35,10 +35,9 @@ public class TFquestion extends Question implements Serializable {
                 System.out.println(prompt);
                 num = scanner.nextInt();
 
-                if(num <= 2 && num >= 1) {
+                if (num <= 2 && num >= 1) {
                     readInt = true;
-                }
-                else {
+                } else {
                     System.out.printf("Please enter a valid integer from %d to %d\n", 1, 2);
                 }
             } catch (InputMismatchException e) {
@@ -51,7 +50,7 @@ public class TFquestion extends Question implements Serializable {
         String ans;
         if (num == 1) {
             ans = "true";
-            right =  check(true);
+            right = check(true);
         } else {
             ans = "false";
             right = check(false);

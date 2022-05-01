@@ -15,7 +15,7 @@ public class ShowCoursesDropdownScreenStudent extends JFrame implements ActionLi
     JLabel questionLabel = new JLabel("What course do you want to enter");
 
 
-    JComboBox<String> jComboBox;
+    JComboBox < String > jComboBox;
 
     JButton enterCourseButton = new JButton("Select");
 
@@ -26,8 +26,8 @@ public class ShowCoursesDropdownScreenStudent extends JFrame implements ActionLi
     int action;
     JFrame calledFrom;
 
-    public ShowCoursesDropdownScreenStudent(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList<String> courses, int action, JFrame calledFrom) {
-        jComboBox = new JComboBox<>(courses.toArray(new String[courses.size()]));
+    public ShowCoursesDropdownScreenStudent(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList < String > courses, int action, JFrame calledFrom) {
+        jComboBox = new JComboBox < > (courses.toArray(new String[courses.size()]));
 
         setLayoutManager();
         setLocationAndSize();
@@ -75,7 +75,7 @@ public class ShowCoursesDropdownScreenStudent extends JFrame implements ActionLi
                 String response = null;
                 response = (String) ois.readObject();
                 if (response.equals("Success")) {
-                    ArrayList<String> arr = (ArrayList<String>) ois.readObject();
+                    ArrayList < String > arr = (ArrayList < String > ) ois.readObject();
                     this.dispose();
                     ShowCoursesDropdownScreen currentScreen = new ShowCoursesDropdownScreen(socket, pw, oos, ois, arr, Server.EDIT_COURSE, this);
                     Utils.makeFrameFromTemplate(currentScreen, "Courses");

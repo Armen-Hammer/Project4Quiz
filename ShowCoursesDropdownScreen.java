@@ -15,7 +15,7 @@ public class ShowCoursesDropdownScreen extends JFrame implements ActionListener 
     JLabel questionLabel = new JLabel("What course do you want to choose");
 
 
-    JComboBox<String> jComboBox;
+    JComboBox < String > jComboBox;
 
     JButton enterCourseButton = new JButton("Select");
 
@@ -25,8 +25,8 @@ public class ShowCoursesDropdownScreen extends JFrame implements ActionListener 
     ObjectInputStream ois;
     int action;
     JFrame calledFrom;
-    public ShowCoursesDropdownScreen(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList<String> courses, int action, JFrame calledFrom) {
-        jComboBox = new JComboBox<>(courses.toArray(new String[courses.size()]));
+    public ShowCoursesDropdownScreen(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList < String > courses, int action, JFrame calledFrom) {
+        jComboBox = new JComboBox < > (courses.toArray(new String[courses.size()]));
 
         setLayoutManager();
         setLocationAndSize();
@@ -102,7 +102,3 @@ public class ShowCoursesDropdownScreen extends JFrame implements ActionListener 
         }
     }
 }
-
-
-
-

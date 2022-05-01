@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -27,9 +26,14 @@ public class TakeMCquestion extends JFrame implements ActionListener {
 
     JTextField questionField = new JTextField();
 
-    String[] optionsToChoose = {"1", "2", "3", "4"};
+    String[] optionsToChoose = {
+        "1",
+        "2",
+        "3",
+        "4"
+    };
 
-    JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
+    JComboBox < String > jComboBox = new JComboBox < > (optionsToChoose);
 
     JButton answerQuestionButton = new JButton("Answer question");
 
@@ -109,7 +113,7 @@ public class TakeMCquestion extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //do something to connect to control flow
         if (e.getSource() == answerQuestionButton) {
-            MCquestion q = new MCquestion(questionField.getText(),choiceAfield.getText(), choiceBfield.getText(), choiceCfield.getText(), choiceDfield.getText(), jComboBox.getSelectedIndex() + 1);
+            MCquestion q = new MCquestion(questionField.getText(), choiceAfield.getText(), choiceBfield.getText(), choiceCfield.getText(), choiceDfield.getText(), jComboBox.getSelectedIndex() + 1);
             try {
                 oos.writeObject(Server.CREATE_MC_QUESTION);
                 oos.writeObject(q);
@@ -124,7 +128,3 @@ public class TakeMCquestion extends JFrame implements ActionListener {
 
     }
 }
-
-
-
-

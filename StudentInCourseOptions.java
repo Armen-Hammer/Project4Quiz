@@ -44,7 +44,7 @@ public class StudentInCourseOptions extends JFrame implements ActionListener {
         takeQuizButton.setBounds(25, 220, 150, 30);
         resetNameButton.setBounds(175, 220, 150, 30);
         resetPassButton.setBounds(25, 290, 150, 30);
-        logoutButton.setBounds(175,290,150,30);
+        logoutButton.setBounds(175, 290, 150, 30);
         delAccountButton.setBounds(25, 360, 150, 30);
 
     }
@@ -94,12 +94,12 @@ public class StudentInCourseOptions extends JFrame implements ActionListener {
                 oos.writeObject(Server.GET_QUIZZES_STR);
                 String x = (String) ois.readObject();
                 if (x.equals("Success")) {
-                    ArrayList<String> quizzes = (ArrayList<String>) ois.readObject();
+                    ArrayList < String > quizzes = (ArrayList < String > ) ois.readObject();
                     this.setVisible(false);
                     QuizListScreen currentScreen = new QuizListScreen(socket, pw, oos, ois, quizzes, Server.TAKE_QUIZ, this);
                     Utils.makeFrameFromTemplate(currentScreen, "Pick Quiz to Edit");
                 } else {
-                    JOptionPane.showMessageDialog(this,x);
+                    JOptionPane.showMessageDialog(this, x);
                 }
             }
         } catch (IOException ex) {

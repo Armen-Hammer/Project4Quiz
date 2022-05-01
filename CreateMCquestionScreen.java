@@ -26,9 +26,14 @@ public class CreateMCquestionScreen extends JFrame implements ActionListener {
 
     JTextField questionField = new JTextField();
 
-    String[] optionsToChoose = {"1", "2", "3", "4"};
+    String[] optionsToChoose = {
+        "1",
+        "2",
+        "3",
+        "4"
+    };
 
-    JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
+    JComboBox < String > jComboBox = new JComboBox < > (optionsToChoose);
 
     JButton makeQuestionButton = new JButton("Create MC question");
 
@@ -100,9 +105,9 @@ public class CreateMCquestionScreen extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-            //do something to connect to control flow
+        //do something to connect to control flow
         if (e.getSource() == makeQuestionButton) {
-            MCquestion q = new MCquestion(questionField.getText(),choiceAfield.getText(), choiceBfield.getText(), choiceCfield.getText(), choiceDfield.getText(), jComboBox.getSelectedIndex() + 1);
+            MCquestion q = new MCquestion(questionField.getText(), choiceAfield.getText(), choiceBfield.getText(), choiceCfield.getText(), choiceDfield.getText(), jComboBox.getSelectedIndex() + 1);
             try {
                 oos.writeObject(Server.CREATE_MC_QUESTION);
                 oos.writeObject(q);

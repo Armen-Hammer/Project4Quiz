@@ -65,7 +65,7 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
                 oos.writeObject(passwordTextField.getText());
                 oos.flush();
                 String response = (String) ois.readObject();
-                if(response.equals("Success")) {
+                if (response.equals("Success")) {
                     JOptionPane.showMessageDialog(this, "Success");
                     this.dispose();
                     calledFrom.setVisible(true);
@@ -85,4 +85,3 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
     }
 
 }
-

@@ -35,11 +35,11 @@ public class Server implements Runnable {
     public static final int EDIT_QUESTION = 17;
 
 
-    private static ArrayList<User> users = User.readFromFile("Usersinfo.txt");
+    private static ArrayList < User > users = User.readFromFile("Usersinfo.txt");
     //private static ArrayList<Course> courses = new ArrayList<>(); //fixme
-    private static ArrayList<Course> courses = StoreData.readCourses(); //fixme
+    private static ArrayList < Course > courses = StoreData.readCourses(); //fixme
 
-    private static ArrayList<Session> sessions = new ArrayList<Session>();
+    private static ArrayList < Session > sessions = new ArrayList < Session > ();
     private static int sessionNum = 0;
 
     Socket socket;
@@ -86,7 +86,7 @@ public class Server implements Runnable {
                     case CREATE_STUDENT: //create a student
                         proposedUser = (User) ois.readObject();
 
-                        for (User u : users) {
+                        for (User u: users) {
                             if (u.getUsername().equals(proposedUser.getUsername())) {
                                 oos.writeObject("Try another username, it is already taken");
                                 oos.flush();
@@ -101,12 +101,12 @@ public class Server implements Runnable {
                             users.add(session.getUser()); //FIXME make student
                             session.setLoggedIn(true);
                         }
-                        Utils.reWriterUserFile(users,"UsersInfo.txt");
+                        Utils.reWriterUserFile(users, "UsersInfo.txt");
                         break;
                     case CREATE_TEACHER:
                         proposedUser = (User) ois.readObject();
 
-                        for (User u : users) {
+                        for (User u: users) {
                             if (u.getUsername().equals(proposedUser.getUsername())) {
                                 oos.writeObject("Try another username, it is already taken");
                                 oos.flush();
@@ -122,7 +122,7 @@ public class Server implements Runnable {
                             users.add(session.getUser()); //FIXME make student
                             session.setLoggedIn(true);
                         }
-                        Utils.reWriterUserFile(users,"UsersInfo.txt");
+                        Utils.reWriterUserFile(users, "UsersInfo.txt");
                         break;
                     case SIGN_IN:
 
@@ -133,7 +133,8 @@ public class Server implements Runnable {
                                 oos.writeObject("S");
                             } else {
                                 oos.writeObject("T");
-                            }                            session.setLoggedIn(true);
+                            }
+                            session.setLoggedIn(true);
                             session.setUser(users.get(users.indexOf(proposedUser)));
                         } else {
                             oos.writeObject("We could not find an account with that login info");
@@ -147,12 +148,12 @@ public class Server implements Runnable {
                             oos.writeObject("Usernames can not contain a comma");
                         } else {
                             session.getUser().setUsername(newUsername);
-                            Utils.reWriterUserFile(users,"UsersInfo.txt");
+                            Utils.reWriterUserFile(users, "UsersInfo.txt");
                             oos.writeObject("Success");
                         }
                         oos.flush();
 
-                        Utils.reWriterUserFile(users,"UsersInfo.txt");
+                        Utils.reWriterUserFile(users, "UsersInfo.txt");
                         break;
                     case EDIT_PASSWORD:
                         String newPassword = (String) ois.readObject();
@@ -160,12 +161,12 @@ public class Server implements Runnable {
                             oos.writeObject("Passwords can not contain a comma");
                         } else {
                             session.getUser().setPassword(newPassword);
-                            Utils.reWriterUserFile(users,"UsersInfo.txt");
+                            Utils.reWriterUserFile(users, "UsersInfo.txt");
                             oos.writeObject("Success");
                         }
                         oos.flush();
 
-                        Utils.reWriterUserFile(users,"UsersInfo.txt");
+                        Utils.reWriterUserFile(users, "UsersInfo.txt");
                         break;
                     case MAKE_COURSE:
 
@@ -194,7 +195,7 @@ public class Server implements Runnable {
                             break;
                         }
                         oos.writeObject("Success");
-                        ArrayList<String> courseListStr = new ArrayList<>();
+                        ArrayList < String > courseListStr = new ArrayList < > ();
                         for (int i = 0; i < courses.size(); i++) {
                             courseListStr.add(String.format("%d.%s %s%n", i + 1, courses.get(i).getCourseName(), courses.get(i).getCourseNumber()));
                         }
@@ -207,7 +208,7 @@ public class Server implements Runnable {
                             break;
                         }
                         oos.writeObject("Success");
-                        ArrayList<String> quizListStr = new ArrayList<>();
+                        ArrayList < String > quizListStr = new ArrayList < > ();
 
                         for (int i = 1; i <= session.getCurrentCourse().getQuizzes().size(); i++) {
                             quizListStr.add(String.format("%d.%s%n", i, session.getCurrentCourse().getQuiz(i - 1).getQuizName()));
@@ -221,7 +222,7 @@ public class Server implements Runnable {
                             break;
                         }
                         oos.writeObject("Success");
-                        ArrayList<String> questionListStr = new ArrayList<>();
+                        ArrayList < String > questionListStr = new ArrayList < > ();
 
                         for (int i = 1; i <= session.getCurrentQuiz().getQuestionCount(); i++) {
                             questionListStr.add(String.format("%d.%s%n", i, session.getCurrentQuiz().getQuestions().get(i - 1).getQuestion()));
@@ -313,21 +314,21 @@ public class Server implements Runnable {
         }
     }
 
-        public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
 
-            ServerSocket serverSocket = new ServerSocket(4242);
-            System.out.printf("socket open, waiting for connections on %s\n",
-                    serverSocket);
+        ServerSocket serverSocket = new ServerSocket(4242);
+        System.out.printf("socket open, waiting for connections on %s\n",
+            serverSocket);
 
-            // infinite server loop: accept connection,
-            // spawn thread to handle...
-            while (true) {
-                Socket socket = serverSocket.accept();
-                Server server = new Server(socket);
-                new Thread(server).start();
-            }
-
-
+        // infinite server loop: accept connection,
+        // spawn thread to handle...
+        while (true) {
+            Socket socket = serverSocket.accept();
+            Server server = new Server(socket);
+            new Thread(server).start();
         }
+
+
+    }
 }

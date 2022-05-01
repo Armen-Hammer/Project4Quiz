@@ -42,9 +42,9 @@ public class ChooseQuestionTypeScreen extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
         prompt.setBounds(50, 150, 500, 30);
-        multChoiceButton.setBounds(100,220,150,30);
-        trueFalseButton.setBounds(100,290,150,30);
-        fillBlankButton.setBounds(100,360,150,30);
+        multChoiceButton.setBounds(100, 220, 150, 30);
+        trueFalseButton.setBounds(100, 290, 150, 30);
+        fillBlankButton.setBounds(100, 360, 150, 30);
 
         if (showFinishButton) {
             finishButton.setBounds(100, 420, 150, 30);
@@ -76,7 +76,7 @@ public class ChooseQuestionTypeScreen extends JFrame implements ActionListener {
         if (e.getSource() == multChoiceButton) {
             this.dispose();
             CreateMCquestionScreen currentScreen = new CreateMCquestionScreen(socket, pw, oos, ois);
-            Utils.makeFrameFromTemplate(currentScreen,"Create Multiple Choice Question");
+            Utils.makeFrameFromTemplate(currentScreen, "Create Multiple Choice Question");
         } else if (e.getSource() == trueFalseButton) {
             this.dispose();
             CreateTFquestionScreen currentScreen = new CreateTFquestionScreen(socket, pw, oos, ois);
@@ -93,5 +93,3 @@ public class ChooseQuestionTypeScreen extends JFrame implements ActionListener {
     }
 
 }
-
-

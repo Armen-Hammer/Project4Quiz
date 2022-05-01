@@ -3,21 +3,21 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Course implements Serializable {
-    private ArrayList<Quiz> quizzes;
+    private ArrayList < Quiz > quizzes;
     private String courseName;
     private int courseNumber;
 
     public Course(String courseName, int courseNumber) {
-        quizzes = new ArrayList<Quiz>();
+        quizzes = new ArrayList < Quiz > ();
         this.courseName = courseName;
         this.courseNumber = courseNumber;
     }
 
-    public ArrayList<Quiz> getQuizzes() {
+    public ArrayList < Quiz > getQuizzes() {
         return quizzes;
     }
 
-    public void setQuizzes(ArrayList<Quiz> quizzes) {
+    public void setQuizzes(ArrayList < Quiz > quizzes) {
         this.quizzes = quizzes;
     }
 
@@ -40,7 +40,7 @@ public class Course implements Serializable {
     public String toString() {
         String str = "";
         for (int i = 0; i < quizzes.size(); i++) {
-            if(i != quizzes.size() - 1) {
+            if (i != quizzes.size() - 1) {
                 str += String.format("%d.%s%n", i + 1, quizzes.get(i).getQuizName());
             } else {
                 str += String.format("%d.%s", i + 1, quizzes.get(i).getQuizName());

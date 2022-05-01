@@ -51,7 +51,7 @@ public class LoginScreen extends JFrame implements ActionListener {
         loginButton.setBounds(50, 300, 100, 30);
         resetButton.setBounds(200, 300, 100, 30);
         signUpButton.setBounds(100, 350, 175, 30);
-        signUpAsStudent.setBounds(100,400,175,30);
+        signUpAsStudent.setBounds(100, 400, 175, 30);
     }
 
     public void addComponentsToContainer() {
@@ -148,4 +148,3 @@ public class LoginScreen extends JFrame implements ActionListener {
     }
 
 }
-

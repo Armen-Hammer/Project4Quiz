@@ -45,7 +45,7 @@ public class CreateFBquestionScreen extends JFrame implements ActionListener {
     public void setLocationAndSize() {
 
         answerLabel.setBounds(50, 200, 100, 30);
-        answerField.setBounds(150,200,150,30);
+        answerField.setBounds(150, 200, 150, 30);
 
         questionLabel.setBounds(50, 70, 100, 30);
         questionField.setBounds(150, 70, 100, 30);
@@ -87,7 +87,3 @@ public class CreateFBquestionScreen extends JFrame implements ActionListener {
         }
     }
 }
-
-
-
-

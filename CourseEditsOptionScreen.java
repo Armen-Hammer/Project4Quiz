@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class CourseEditsOptionScreen extends JFrame implements ActionListener {
 
     Container container = getContentPane();
-    public static String LOGGED_IN_TEACHER_OPTIONS ="1.Make a quiz\n2.Edit a quiz\n3.Delete quiz\n4.View quiz submissions\n5.Edit username\n6.Edit password\n7.Logout\n8.Delete Account";
+    public static String LOGGED_IN_TEACHER_OPTIONS = "1.Make a quiz\n2.Edit a quiz\n3.Delete quiz\n4.View quiz submissions\n5.Edit username\n6.Edit password\n7.Logout\n8.Delete Account";
 
     JLabel prompt = new JLabel("WHAT DO YOU WANT TO DO?");
     JButton makeQuizButton = new JButton("MAKE A QUIZ");
@@ -48,7 +48,7 @@ public class CourseEditsOptionScreen extends JFrame implements ActionListener {
         makeQuizButton.setBounds(25, 220, 150, 30);
         editQuizButton.setBounds(175, 220, 150, 30);
         deleteQuizButton.setBounds(25, 290, 150, 30);
-        submissionsButton.setBounds(175,290,150,30);
+        submissionsButton.setBounds(175, 290, 150, 30);
         resetNameButton.setBounds(25, 360, 150, 30);
         resetPassButton.setBounds(175, 360, 150, 30);
         logoutButton.setBounds(25, 430, 150, 30);
@@ -113,23 +113,23 @@ public class CourseEditsOptionScreen extends JFrame implements ActionListener {
                 oos.writeObject(Server.GET_QUIZZES_STR);
                 String x = (String) ois.readObject();
                 if (x.equals("Success")) {
-                    ArrayList<String> quizzes = (ArrayList<String>) ois.readObject();
+                    ArrayList < String > quizzes = (ArrayList < String > ) ois.readObject();
                     this.setVisible(false);
                     QuizListScreen currentScreen = new QuizListScreen(socket, pw, oos, ois, quizzes, Server.DELETE_QUIZ, this);
                     Utils.makeFrameFromTemplate(currentScreen, "Delete Quiz");
                 } else {
-                    JOptionPane.showMessageDialog(this,x);
+                    JOptionPane.showMessageDialog(this, x);
                 }
             } else if (e.getSource() == editQuizButton) {
                 oos.writeObject(Server.GET_QUIZZES_STR);
                 String x = (String) ois.readObject();
                 if (x.equals("Success")) {
-                    ArrayList<String> quizzes = (ArrayList<String>) ois.readObject();
+                    ArrayList < String > quizzes = (ArrayList < String > ) ois.readObject();
                     this.setVisible(false);
                     QuizListScreen currentScreen = new QuizListScreen(socket, pw, oos, ois, quizzes, Server.EDIT_QUIZ, this);
                     Utils.makeFrameFromTemplate(currentScreen, "Pick Quiz to Edit");
                 } else {
-                    JOptionPane.showMessageDialog(this,x);
+                    JOptionPane.showMessageDialog(this, x);
                 }
             }
         } catch (IOException ex) {
@@ -140,5 +140,3 @@ public class CourseEditsOptionScreen extends JFrame implements ActionListener {
     }
 
 }
-
-

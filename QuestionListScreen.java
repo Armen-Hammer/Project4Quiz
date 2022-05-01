@@ -15,7 +15,7 @@ public class QuestionListScreen extends JFrame implements ActionListener {
     JLabel questionLabel = new JLabel("What question do you want to choose");
 
 
-    JComboBox<String> jComboBox;
+    JComboBox < String > jComboBox;
 
     JButton enterQuestionButton = new JButton("Select");
 
@@ -26,8 +26,8 @@ public class QuestionListScreen extends JFrame implements ActionListener {
     int action;
     JFrame calledFrom;
 
-    public QuestionListScreen(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList<String> questions, int action, JFrame calledFrom) {
-        jComboBox = new JComboBox<>(questions.toArray(new String[questions.size()]));
+    public QuestionListScreen(Socket socket, PrintWriter pw, ObjectOutputStream oos, ObjectInputStream ois, ArrayList < String > questions, int action, JFrame calledFrom) {
+        jComboBox = new JComboBox < > (questions.toArray(new String[questions.size()]));
 
         setLayoutManager();
         setLocationAndSize();

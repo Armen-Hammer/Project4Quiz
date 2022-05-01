@@ -1,5 +1,3 @@
-package com.example.testing;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,9 +16,12 @@ public class TakeTFquestion extends JFrame implements ActionListener {
 
     JLabel questionField;
 
-    String[] optionsToChoose = {"TRUE", "FALSE"};
+    String[] optionsToChoose = {
+        "TRUE",
+        "FALSE"
+    };
 
-    JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
+    JComboBox < String > jComboBox = new JComboBox < > (optionsToChoose);
 
     JButton answerQuestionButton = new JButton("Answer question");
 
@@ -52,7 +53,7 @@ public class TakeTFquestion extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        answerLabel.setBounds(50,200,100,30);
+        answerLabel.setBounds(50, 200, 100, 30);
         jComboBox.setBounds(150, 200, 150, 30);
 
         questionLabel.setBounds(50, 70, 100, 30);
@@ -90,7 +91,3 @@ public class TakeTFquestion extends JFrame implements ActionListener {
         }
     }
 }
-
-
-
-

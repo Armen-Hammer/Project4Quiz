@@ -80,7 +80,7 @@ public class CreateCourseScreen extends JFrame implements ActionListener {
 
             } catch (Exception exc) { //fixme make the error specific
                 System.out.println(exc);
-                JOptionPane.showMessageDialog(this, "The course number must be an integer");//fixme
+                JOptionPane.showMessageDialog(this, "The course number must be an integer"); //fixme
                 return;
             }
 
@@ -90,6 +90,3 @@ public class CreateCourseScreen extends JFrame implements ActionListener {
     }
 
 }
-
-
-

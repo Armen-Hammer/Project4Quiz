@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class Quiz implements Serializable {
     private String quizName;
-    private ArrayList<Question> questions;
-    private ArrayList<QuizSubmission> submissions;
+    private ArrayList < Question > questions;
+    private ArrayList < QuizSubmission > submissions;
 
     public Quiz(String quizName) {
         this.quizName = quizName;
-        this.questions = new ArrayList<Question>();
-        this.submissions = new ArrayList<QuizSubmission>();
+        this.questions = new ArrayList < Question > ();
+        this.submissions = new ArrayList < QuizSubmission > ();
     }
 
     public void addQuestion(Question question) {
@@ -21,7 +21,7 @@ public class Quiz implements Serializable {
         return questions.size();
     }
 
-    public boolean deleteQuestion (Question q) {
+    public boolean deleteQuestion(Question q) {
 
         for (int i = 0; i < questions.size(); i++) {
             if (questions.get(i).equals(q)) {
@@ -33,15 +33,15 @@ public class Quiz implements Serializable {
 
     }
 
-    public void deleteQuestion (int index) {
+    public void deleteQuestion(int index) {
         questions.remove(index);
     }
 
-    public void setQuestion (int index, Question q) {
+    public void setQuestion(int index, Question q) {
         questions.set(index, q);
     }
 
-    public ArrayList<Question> getQuestions() {
+    public ArrayList < Question > getQuestions() {
         return questions;
     }
 
@@ -60,8 +60,8 @@ public class Quiz implements Serializable {
 
     public String toString() {
         String str = "";
-        for(int i = 0; i < questions.size(); i++) {
-            if(i != questions.size() - 1) {
+        for (int i = 0; i < questions.size(); i++) {
+            if (i != questions.size() - 1) {
                 str += String.format("%d.%s%n", i + 1, questions.get(i).getQuestion());
             } else {
                 str += String.format("%d.%s", i + 1, questions.get(i).getQuestion());
@@ -74,7 +74,7 @@ public class Quiz implements Serializable {
         this.submissions.add(submission);
     }
 
-    public ArrayList<QuizSubmission> getSubmissions() {
+    public ArrayList < QuizSubmission > getSubmissions() {
         return submissions;
     }
 
@@ -95,9 +95,9 @@ public class Quiz implements Serializable {
 
             while (line != null) {
 
-                switch(line) {
+                switch (line) {
                     case "MC":
-                        String c1,c2,c3,c4;
+                        String c1, c2, c3, c4;
                         int answer;
                         question = br.readLine();
                         c1 = br.readLine();

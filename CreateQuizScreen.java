@@ -53,7 +53,7 @@ public class CreateQuizScreen extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {//fixme
+    public void actionPerformed(ActionEvent e) { //fixme
         if (e.getSource() == makeCourseButton) {
 
             try {
@@ -84,6 +84,3 @@ public class CreateQuizScreen extends JFrame implements ActionListener {
     }
 
 }
-
-
-
