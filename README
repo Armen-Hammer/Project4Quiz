@@ -4,6 +4,10 @@ PROJECT 5 QUIZ
 
 ** To run this project you need to have a UsersInfo.txt file in your directory**
 
+
+Gabriel submitted the report on Brightspcae.
+Wei submitted the presentation on Brightspace.
+
 Class AnsweredQuestion
 
 • Constructor AnsweredQuestion assigns values to variables question, answer and correct. 
